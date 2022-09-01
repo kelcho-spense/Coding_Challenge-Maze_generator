@@ -3,16 +3,43 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maze_Generator</title>
 
-    <title>Sketch</title>
+    <link rel="stylesheet" type="text/css" href="./style.css">
 
-    <link rel="stylesheet" type="text/css" href="style.css">
-
-    <script src="libraries/p5.min.js"></script>
-    <script src="libraries/p5.sound.min.js"></script>
+    <script src="./libraries/p5.min.js"></script>
+    <script src="./libraries/p5.sound.min.js"></script>
   </head>
 
   <body>
-    <script src="sketch.js"></script>
+    <div class="algo">
+      <h2><span>Depth-first search algorithm</span></h2>
+      <h3>It is frequently implemented using <i>backtracking</i> to create a maze generator</h3>
+      <p >
+        <ul id="steps">
+          <li>Make the initial cell the current cell and mark it as visited.</li>
+          <li>While there are unvisited cells.
+            <ul>
+              <li>If the current cell has any neighbours which have not been visited?
+                <ul>
+                  <li>Choose randomly one of the unvisited neighbours.</li>
+                  <li>Push the current cell to the stack.</li>
+                  <li>Remove the wall between the current cell and the chosen cell.</li>
+                  <li>make the chosen cell the current and mark it as visited.</li>
+                </ul>
+              </li>
+              <li>Else if stack is not empty?
+                <ul>
+                  <li>Pop a cell from the stack.</li>
+                  <li>Make it the current cell.</li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </p>
+    </div>    
+    <script src="./sketch.js"></script>
+    <script src="./cell.js"></script>
   </body>
 </html>
